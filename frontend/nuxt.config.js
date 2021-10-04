@@ -38,6 +38,7 @@ export default {
 
   strapi: {
     entities: ["mains", "contacts", "abouts"],
+    url: "http://localhost:1337"
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

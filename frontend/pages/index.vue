@@ -2,15 +2,37 @@
   <div class="app">
     <h1>Главная страница</h1>
     <img
-      src="https://sun9-1.userapi.com/impg/KHFQizP4dW7qcaV9PgQ5hghz9zgjJDjGwWtIxQ/yoVnHrmNq1c.jpg?size=2560x1616&quality=96&sign=930294cf4238244e71d25519f74216aa&type=album"
+      :src="img"
       alt="портрет"
     />
-    <h2>Воробьев Никита</h2>
+    <h2>{{ name }}</h2>
     <hr />
     <nuxt-link to="/about">обо мне</nuxt-link>
     <nuxt-link to="/contacts">контакты</nuxt-link>
   </div>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      img: null,
+      name: null,
+      error: null
+    };
+  },
+  async mounted() {
+    try {
+      this.mains = await this.$strapi.$mains.find();
+      this.img = this.mains[0].photo;
+      this.name = this.mains[0].name;
+    } catch (error) {
+      this.error = error;
+      console.log(this.error);
+    }
+  }
+};
+</script>
 
 <style scoped>
 img {

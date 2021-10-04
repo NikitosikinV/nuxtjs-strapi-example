@@ -33,7 +33,12 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
+    "@nuxtjs/strapi"
   ],
+
+  strapi: {
+    entities: ["mains", "contacts", "abouts"],
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {

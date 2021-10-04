@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "abouts",
+  "info": {
+    "name": "About"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "FIO": {
+      "type": "string"
+    },
+    "birthDate": {
+      "type": "string"
+    },
+    "city": {
+      "type": "string"
+    },
+    "education": {
+      "type": "string"
+    },
+    "species": {
+      "type": "string"
+    },
+    "company": {
+      "type": "string"
+    },
+    "position": {
+      "type": "string"
+    },
+    "hobby": {
+      "type": "text"
+    }
+  }
+}

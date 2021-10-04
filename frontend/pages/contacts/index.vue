@@ -2,9 +2,9 @@
   <div class="app">
     <h1>Контакты</h1>
     <p><b>Почта:</b> {{ email }}</p>
-    <p><b>Телефон:</b> +7963752----</p>
+    <p><b>Телефон:</b> {{ tel }}</p>
     <p>
-      <a href="https://www.instagram.com/nikitosikinv/">Instagram</a>
+      <a :href="insta">Instagram</a>
     </p>
     <hr />
     <nuxt-link to="/">главная</nuxt-link>
@@ -17,6 +17,8 @@ export default {
   data() {
     return {
       email: null,
+      tel: null,
+      insta: null,
       error: null
     };
   },
@@ -24,6 +26,8 @@ export default {
     try {
       this.contacts = await this.$strapi.$contacts.find();
       this.email = this.contacts[0].email;
+      this.tel = this.contacts[0].tel;
+      this.insta = this.contacts[0].insta;
     } catch (error) {
       this.error = error;
       console.log(this.error);
